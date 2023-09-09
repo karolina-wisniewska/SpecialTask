@@ -1,12 +1,16 @@
 package org.kwisniewska;
 
-public class Main {
+public class Solution {
   public static void main(String[] args) {
-
+    printBonusDatesBetween(2020, 2015);
     printBonusDatesBetween(2010, 2015);
   }
 
   public static void printBonusDatesBetween(int fromYear, int toYear) {
+    if (fromYear > toYear) {
+      System.out.println("Invalid data");
+    }
+
     for (int year = fromYear; year <= toYear; year++) {
       for (int month = 1; month <= 12; month++) {
         int daysInMonth = calculateDaysInMonth(month, year);
@@ -23,7 +27,7 @@ public class Main {
 
   private static boolean isPalindrome(String dateAsString) {
     int left = 0;
-    int right = dateAsString.length() -1;
+    int right = dateAsString.length() - 1;
     while (left < right) {
       if (dateAsString.charAt(left) != dateAsString.charAt(right)) {
         return false;
