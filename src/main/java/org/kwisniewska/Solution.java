@@ -14,16 +14,16 @@ public class Solution {
   public static void printBonusDatesBetween(int fromYear, int toYear) {
     if (fromYear > toYear || fromYear < MIN_YEAR || toYear > MAX_YEAR) {
       System.out.println(ERROR_MESSAGE);
-    }
-
-    for (int year = fromYear; year <= toYear; year++) {
-      for (int month = 1; month <= NUMBER_OF_MONTHS; month++) {
-        int daysInMonth = calculateDaysInMonth(month, year);
-        for (int day = 1; day <= daysInMonth; day++) {
-          String dateAsString = String.format("%4d%02d%02d", year, month, day);
-          if (isPalindrome(dateAsString)) {
-            String formattedDate = String.format("%4d-%02d-%02d", year, month, day);
-            System.out.println(formattedDate);
+    } else {
+      for (int year = fromYear; year <= toYear; year++) {
+        for (int month = 1; month <= NUMBER_OF_MONTHS; month++) {
+          int daysInMonth = calculateDaysInMonth(month, year);
+          for (int day = 1; day <= daysInMonth; day++) {
+            String dateAsString = String.format("%4d%02d%02d", year, month, day);
+            if (isPalindrome(dateAsString)) {
+              String formattedDate = String.format("%4d-%02d-%02d", year, month, day);
+              System.out.println(formattedDate);
+            }
           }
         }
       }
