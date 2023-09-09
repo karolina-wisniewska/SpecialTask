@@ -6,13 +6,18 @@ public class Solution {
     printBonusDatesBetween(2010, 2015);
   }
 
+  private static final int MIN_YEAR = 1800;
+  private static final int MAX_YEAR = 2200;
+  private static final int NUMBER_OF_MONTHS = 12;
+  public static final String ERROR_MESSAGE = "Invalid data";
+
   public static void printBonusDatesBetween(int fromYear, int toYear) {
-    if (fromYear > toYear) {
-      System.out.println("Invalid data");
+    if (fromYear > toYear || fromYear < MIN_YEAR || toYear > MAX_YEAR) {
+      System.out.println(ERROR_MESSAGE);
     }
 
     for (int year = fromYear; year <= toYear; year++) {
-      for (int month = 1; month <= 12; month++) {
+      for (int month = 1; month <= NUMBER_OF_MONTHS; month++) {
         int daysInMonth = calculateDaysInMonth(month, year);
         for (int day = 1; day <= daysInMonth; day++) {
           String dateAsString = String.format("%4d%02d%02d", year, month, day);
